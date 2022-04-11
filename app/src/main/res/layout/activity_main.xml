@@ -62,7 +62,7 @@
         android:layout_height="175dp"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/wentworth"
+        android:src="@drawable/Wentworth"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
