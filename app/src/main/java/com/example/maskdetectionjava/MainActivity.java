@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     Button b1,b2;
@@ -35,36 +37,28 @@ public class MainActivity extends AppCompatActivity {
         tx1 = (TextView)findViewById(R.id.textView3);
         tx1.setVisibility(View.GONE);
 
-            b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        b1.setOnClickListener(v -> {
 
-                    if(ed1.getText().toString().equals("admin") &&
+            if(ed1.getText().toString().equals("admin") &&
                         ed2.getText().toString().equals("admin")) {
-                    Toast.makeText(getApplicationContext(), "Redirecting...",Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent();
-                        intent.setClass(MainActivity.this, Timecard.class );
-                        startActivity(intent);
-                }else{
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Redirecting...",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, HomeMenu.class );
+                startActivity(intent);
+            }else{
+                Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
 
-                            tx1.setVisibility(View.VISIBLE);
-                    tx1.setBackgroundColor(Color.RED);
-                    counter--;
-                    tx1.setText(Integer.toString(counter));
+                tx1.setVisibility(View.VISIBLE);
+                tx1.setBackgroundColor(Color.RED);
+                counter--;
+                tx1.setText(String.format(Locale.getDefault(),"%d", counter));
 
-                    if (counter == 0) {
-                        b1.setEnabled(false);
-                    }
+                if (counter == 0) {
+                    b1.setEnabled(false);
                 }
             }
         });
 
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        b2.setOnClickListener(v -> finish());
     }
 }
