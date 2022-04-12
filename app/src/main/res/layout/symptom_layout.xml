@@ -1,6 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-</LinearLayout>
+    <!-- add RadioGroup which contain the many RadioButton-->
+
+    <!-- add button For Submit the Selected item-->
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select any new symptoms you are experiencing..."
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.008" />
+
+    <RadioGroup
+        android:id="@+id/groupradio"
+        android:layout_width="400dp"
+        android:layout_height="604dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.566">
+
+        <!-- In RadioGroup create the 1 Radio Button-->
+        <!-- like this we will add some more Radio Button-->
+        <RadioButton
+            android:id="@+id/radia_id1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="No New Symptoms"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radia_id2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Fever greater than 100.4F (38C)"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radia_id3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Chills"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radia_id4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Cough"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radia_id5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Difficulty breathing"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radia_id6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Fatigue"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radia_id7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Muscle aches"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radia_id8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Congestion or runny nose"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radia_id9"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Nausea or vomiting"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radia_id10"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Headache"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radia_id11"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Loss of taste or smell"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radia_id12"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Sore throat"
+            android:textSize="20dp" />
+    </RadioGroup>
+
+    <!-- add clear button for clear the selected item-->
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.989" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
