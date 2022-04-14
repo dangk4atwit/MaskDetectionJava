@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">MaskDetectionJava</string>
+    <string name="app_name">Mask Detection</string>
+    <string name="profileNavTitle">Profile</string>
+    <string name="homeNavTitle">Profile</string>
+    <string name="timecardNavTitle">Profile</string>
+    <string name="logoutNavTitle">Profile</string>
 </resources>
