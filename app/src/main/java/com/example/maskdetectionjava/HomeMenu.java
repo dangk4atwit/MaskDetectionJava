@@ -7,10 +7,13 @@ import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class HomeMenu  extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
 
     BottomNavigationView botNavView;
+    Button cambutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,18 @@ public class HomeMenu  extends AppCompatActivity implements NavigationBarView.On
 
         botNavView.setOnItemSelectedListener(this);
         botNavView.setSelectedItemId(R.id.home);
+
+        cambutton = findViewById(R.id.button3);
+        cambutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent maskintent = new Intent();
+                maskintent.setClass(HomeMenu.this,Mask.class);
+                startActivity(maskintent);
+            }
+        });
     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -41,3 +55,4 @@ public class HomeMenu  extends AppCompatActivity implements NavigationBarView.On
             return false;
     }
 }
+
