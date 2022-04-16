@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Redirecting...",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, HomeMenu.class );
+                Data.setCurrData(new Data());
                 startActivity(intent);
             }else{
                 Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
