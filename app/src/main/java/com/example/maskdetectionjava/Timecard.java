@@ -1,11 +1,14 @@
 package com.example.maskdetectionjava;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Timecard extends AppCompatActivity {
+    float total;
+
 
 
     @Override
@@ -25,6 +28,23 @@ public class Timecard extends AppCompatActivity {
         TextView sunTitle = findViewById(R.id.SubTitleSun);
 
         //initiate edittime
+        EditText monIn = findViewById(R.id.MonIn);
+        EditText monOut = findViewById(R.id.MonOut);
+        EditText tueIn = findViewById(R.id.TuesIn);
+        EditText tueOut = findViewById(R.id.TuesOut);
+        EditText wedIn = findViewById(R.id.WedIn);
+        EditText wedOut = findViewById(R.id.WedOut);
+        EditText friIn = findViewById(R.id.FriIn);
+        EditText friOut = findViewById(R.id.FriOut);
+        EditText satIn = findViewById(R.id.SatIn);
+        EditText satOut = findViewById(R.id.SatOut);
+        EditText thuIn = findViewById(R.id.ThurIn);
+        EditText thuOut = findViewById(R.id.ThurOut);
+        EditText sunIn = findViewById(R.id.SundayIn);
+        EditText sunOut = findViewById(R.id.SundayOut);
+
+    }
+    public void calculateHoursWorked() {
 
     }
 }
