@@ -3,11 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/DangitKevin/AndroidStudioProjects/MaskDetectionJava/app/src/main/res/layout/activity_main.xml" value="0.484375" />
-        <entry key="..\:/Users/DangitKevin/AndroidStudioProjects/MaskDetectionJava/app/src/main/res/layout/home_layout.xml" value="0.432518115942029" />
-        <entry key="..\:/Users/DangitKevin/AndroidStudioProjects/MaskDetectionJava/app/src/main/res/layout/mask_layout.xml" value="0.432518115942029" />
-        <entry key="..\:/Users/DangitKevin/AndroidStudioProjects/MaskDetectionJava/app/src/main/res/layout/symptom_layout.xml" value="0.432518115942029" />
-        <entry key="..\:/Users/DangitKevin/AndroidStudioProjects/MaskDetectionJava/app/src/main/res/layout/timecard_layout.xml" value="0.432518115942029" />
+        <entry key="..\:/Users/delizcolonj/workspaces/workspace_mobileapp/MaskDetectionJava/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/delizcolonj/workspaces/workspace_mobileapp/MaskDetectionJava/app/src/main/res/layout/home_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/delizcolonj/workspaces/workspace_mobileapp/MaskDetectionJava/app/src/main/res/layout/symptom_layout.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/delizcolonj/workspaces/workspace_mobileapp/MaskDetectionJava/app/src/main/res/layout/timecard_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1995" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.1995" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2885" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.2885" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/layout/fragment_home.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/layout/fragment_login.xml" value="0.33645833333333336" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/layout/fragment_main_app.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/layout/home_layout.xml" value="0.25" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/layout/symptom_layout.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/layout/timecard_layout.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/hoj2/StudioProjects/MaskDetectionJava/app/src/main/res/menu/bottom_nav_menu.xml" value="0.33645833333333336" />
       </map>
     </option>
   </component>

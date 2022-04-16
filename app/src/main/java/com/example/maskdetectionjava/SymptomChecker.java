@@ -32,8 +32,7 @@ public class SymptomChecker extends AppCompatActivity {
 
         // Add the Listener to the RadioGroup
         radioGroup.setOnCheckedChangeListener(
-                new RadioGroup
-                        .OnCheckedChangeListener() {
+                new RadioGroup.OnCheckedChangeListener() {
                     @Override
 
                     // The flow will come here when
@@ -41,23 +40,17 @@ public class SymptomChecker extends AppCompatActivity {
                     // has been clicked
 
                     // Check which radio button has been clicked
-                    public void onCheckedChanged(RadioGroup group,
-                                                 int checkedId)
-                    {
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                         // Get the selected Radio Button
-                        RadioButton
-                                radioButton
-                                = (RadioButton)group
-                                .findViewById(checkedId);
+                        RadioButton radioButton = (RadioButton)group.findViewById(checkedId);
                     }
                 });
 
         // Add the Listener to the Submit Button
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
 
                 // When submit button is clicked,
                 // Ge the Radio Button which is set
