@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button b1,b2;
     EditText ed1,ed2;
 
-    TextView tx1;
+    TextView tx1, tx2;
     int counter = 3;
 
     @Override
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         b2 = (Button)findViewById(R.id.button2);
         tx1 = (TextView)findViewById(R.id.textView3);
         tx1.setVisibility(View.GONE);
+        tx2 = (TextView)findViewById(R.id.textView2);
+        tx2.setVisibility(View.GONE);
 
         b1.setOnClickListener(v -> {
 
@@ -44,10 +48,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Redirecting...",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, HomeMenu.class );
+                Data.setCurrData(new Data());
                 startActivity(intent);
             }else{
                 Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
 
+                tx2.setVisibility(View.VISIBLE);
                 tx1.setVisibility(View.VISIBLE);
                 tx1.setBackgroundColor(Color.RED);
                 counter--;

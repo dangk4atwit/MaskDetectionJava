@@ -1,71 +1,110 @@
 package com.example.maskdetectionjava;
 
-import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
+import androidx.camera.core.Camera;
+import androidx.camera.core.CameraSelector;
+import androidx.camera.core.ImageCapture;
+import androidx.camera.core.Preview;
+import androidx.camera.lifecycle.ProcessCameraProvider;
+import androidx.camera.view.PreviewView;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.LifecycleOwner;
+
+import com.google.common.util.concurrent.ListenableFuture;
+
+import org.w3c.dom.Text;
+
+import java.util.concurrent.ExecutionException;
 
 public class Mask extends AppCompatActivity {
 
-
-    private ImageView imageView;
-    private Button button, red, green;
+    private Button button, red, green, exit;
+    private TextView maskText;
+    private int REQUEST_CODE_PERMISSION_CAMERA = 100;
+    private String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mask_layout);
 
-        imageView = findViewById(R.id.imageView);
-        button = findViewById(R.id.cameraButton);
-        red = findViewById(R.id.red);
-        green = findViewById(R.id.green);
+        button = (Button) findViewById(R.id.cameraButton);
+        red = (Button) findViewById(R.id.btn_msk_not_detected);
+        green = (Button) findViewById(R.id.btn_msk_detected);
+        exit = (Button) findViewById(R.id.exit_camera);
+        maskText = (TextView) findViewById(R.id.mask_detected_text);
 
-        red.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //add intent
-            }
+        red.setOnClickListener(v -> {
+                maskText.setTextColor(Color.RED);
+                maskText.setText("Mask Not Found");
         });
 
-        green.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //add intent
-            }
+        green.setOnClickListener(v -> {
+                maskText.setTextColor(Color.GREEN);
+                maskText.setText("Mask Found");
         });
 
-        if(ContextCompat.checkSelfPermission(this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{
-                    Manifest.permission.CAMERA
-            },100);
+        if(allPermissionsGranted()){
+            startCameraPreview();
         }
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,100);
-            }
+        exit.setOnClickListener(v -> {
+            finish();
         });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 100){
-            Bitmap bitmap = (Bitmap)  data.getExtras().get("data");
-            imageView.setImageBitmap(bitmap);
+    private boolean allPermissionsGranted(){
+        for(String permission: REQUIRED_PERMISSIONS){
+            if(ContextCompat.checkSelfPermission(this,  permission) != PackageManager.PERMISSION_GRANTED){
+                return false;
+            }
         }
+        return true;
+    }
+
+    //Base code needs to be researched to properly incorporate into our camera implementation
+//    private void takeImage(){
+//        ImageCapture imageCapture = new ImageCapture.Builder().build();
+//        imageCapture.takePicture(ContextCompat.getMainExecutor(), // Defines where the callbacks are run
+//                ImageCapture.OnImageCapturedCallback({
+//            override fun onCaptureSuccess(imageProxy: ImageProxy) {
+//                val image: Image = imageProxy.image // Do what you want with the image
+//                imageProxy.close() // Make sure to close the image
+//            }
+//
+//            override fun onError(exception: ImageCaptureException) {
+//                // Handle exception
+//            }
+//        })
+//)
+//    }
+
+    void startCameraPreview() {
+        ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
+
+        ProcessCameraProvider cameraProvider = null;
+        cameraProviderFuture = ProcessCameraProvider.getInstance(this);
+        try {
+            cameraProvider = cameraProviderFuture.get();
+        } catch(ExecutionException | InterruptedException e)  {}
+
+        Preview preview = new Preview.Builder().build();
+
+        CameraSelector cameraSelector = new CameraSelector.Builder()
+                .requireLensFacing(CameraSelector.LENS_FACING_FRONT).build();
+
+        PreviewView previewView = findViewById(R.id.cameraView);   //<<<<<<Returns null
+
+        preview.setSurfaceProvider(previewView.getSurfaceProvider());
+
+        Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner) this, cameraSelector, preview);
     }
 }
