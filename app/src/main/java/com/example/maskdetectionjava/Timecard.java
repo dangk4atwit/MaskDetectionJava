@@ -69,7 +69,7 @@ public class Timecard extends AppCompatActivity {
         sun = textToInt(sunIn);
         sun2 = textToInt(sunOut);
 
-        calculateHoursWorked();
+        timeTotal = calculateHoursWorked();
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +84,7 @@ public class Timecard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
+                intent.putExtra("timeTotal", timeTotal);
                 intent.setClass(Timecard.this, HomeMenu.class);
                 startActivity(intent);
             }
