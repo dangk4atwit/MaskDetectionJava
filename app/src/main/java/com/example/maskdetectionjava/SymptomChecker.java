@@ -1,5 +1,6 @@
 package com.example.maskdetectionjava;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,22 +31,14 @@ public class SymptomChecker extends AppCompatActivity {
         // Uncheck or reset the radio buttons initially
         radioGroup.clearCheck();
 
-        // Add the Listener to the RadioGroup
-        radioGroup.setOnCheckedChangeListener(
-                new RadioGroup.OnCheckedChangeListener() {
-                    @Override
-
-                    // The flow will come here when
-                    // any of the radio buttons in the radioGroup
-                    // has been clicked
-
-                    // Check which radio button has been clicked
-                    public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-                        // Get the selected Radio Button
-                        RadioButton radioButton = (RadioButton)group.findViewById(checkedId);
-                    }
-                });
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            // Check which radio button has been clicked
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // Get the selected Radio Button
+                RadioButton radioButton = (RadioButton)group.findViewById(checkedId);
+            }
+        });
 
         // Add the Listener to the Submit Button
         submit.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +58,15 @@ public class SymptomChecker extends AppCompatActivity {
                 else {
 
                     RadioButton radioButton = (RadioButton)radioGroup.findViewById(selectedId);
+
+                    Intent intent = new Intent();
+                    intent.setClass(SymptomChecker.this, HomeMenu.class);
+                    if (selectedId == 0) {
+                        intent.putExtra("green", true);
+                    }
+                    intent.putExtra("red", false);
+                    startActivity(intent);
+
 
                     // Now display the value of selected item
                     // by the Toast message
