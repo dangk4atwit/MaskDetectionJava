@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/daySubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Hours worked for Monday..."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daySubtitle">
+
+        <TextView
+            android:layout_width="87dp"
+            android:layout_height="39dp"
+            android:text="Time In:"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/dayIn"
+            android:layout_width="88dp"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:autofillHints=""
+            android:hint="@string/timeHint"
+            android:inputType="time"/>
+
+        <TextView
+            android:layout_width="87dp"
+            android:layout_height="39dp"
+            android:text="Time Out:"
+            android:textAlignment="center"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/dayOut"
+            android:layout_width="88dp"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:autofillHints=""
+            android:hint="@string/timeHint"
+            android:inputType="time"/>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
