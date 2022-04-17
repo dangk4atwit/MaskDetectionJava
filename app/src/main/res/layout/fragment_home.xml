@@ -60,15 +60,43 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <TextView
+            android:id="@+id/test_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Report Symptoms"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/test_btn"
+            android:textColor="@color/white"/>
+
         <ImageButton
             android:id="@+id/test_btn"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:background="@drawable/ic_baseline_science_24"
             android:backgroundTint="@color/white"
-            android:baselineAlignBottom="true"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="550dp"
+            app:layout_constraintBottom_toTopOf="@id/test_TV"
+            app:layout_constraintStart_toStartOf="@id/test_TV"
+            app:layout_constraintEnd_toEndOf="@id/test_TV"/>
+
+        <TextView
+            android:id="@+id/mask_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Mask Check-Up"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mask_btn"
+            android:textColor="@color/white"/>
 
         <ImageButton
             android:id="@+id/mask_btn"
@@ -76,8 +104,11 @@
             android:layout_height="130dp"
             android:background="@drawable/ic_baseline_masks_24"
             android:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="550dp"
+            app:layout_constraintBottom_toTopOf="@id/mask_TV"
+            app:layout_constraintEnd_toEndOf="@id/mask_TV"
+            app:layout_constraintStart_toStartOf="@id/mask_TV" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

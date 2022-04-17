@@ -20,6 +20,7 @@ public class Data {
     Level access;
     int profileImageID;
 
+    //Default Constructor
     public Data(){
         this("none", "Bob", "Daniels",false, false, "000-000-0000", Level.ADMIN, R.drawable.ic_baseline_person_24);
     }
@@ -45,12 +46,12 @@ public class Data {
     static public void setSymptomCleared(boolean cleared){
         Data newData = currData;
         newData.symptomCleared = cleared;
-        currData = new Data(newData);
+        setCurrData(new Data(newData));
     }
     static public void setMaskCleared(boolean cleared){
         Data newData = currData;
         newData.maskCleared = cleared;
-        currData = new Data(newData);
+        setCurrData(new Data(newData));
     }
 
     public static boolean isCleared(){
