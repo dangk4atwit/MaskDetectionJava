@@ -62,7 +62,8 @@
         android:src="@drawable/wentworth"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_TV" />
+        app:layout_constraintTop_toBottomOf="@id/title_TV"
+        app:layout_constraintBottom_toTopOf="@id/login_TV"/>
 
     <EditText
         android:id="@+id/editText2"
