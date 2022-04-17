@@ -1,5 +1,9 @@
 package com.example.maskdetectionjava;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
@@ -23,7 +27,7 @@ public class HomeMenu  extends AppCompatActivity {
 
         botNavView = findViewById(R.id.botNavView);
         botNavView.setSelectedItemId(R.id.home);
-        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,homeFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, homeFragment).commit();
 
         botNavView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -31,14 +35,20 @@ public class HomeMenu  extends AppCompatActivity {
                 if (item.getItemId() == R.id.profile) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, profileFragment).commit();
                     return true;
-                }if(item.getItemId() == R.id.home) {
+                }
+                if (item.getItemId() == R.id.home) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, homeFragment).commit();
                     return true;
-                }if(item.getItemId() == R.id.timecard){
+                }
+                if (item.getItemId() == R.id.timecard) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, timecardFragment).commit();
                     return true;
-                }if(item.getItemId() == R.id.exit) {
-                    //finish();
+                }
+                if (item.getItemId() == R.id.exit) {
+                    Intent intent = new Intent();
+                    intent.setClass(HomeMenu.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
                     return true;
                 }
                 return false;
@@ -51,5 +61,6 @@ public class HomeMenu  extends AppCompatActivity {
 //        badgeDrawable.setNumber(8);
 
     }
+
 }
 

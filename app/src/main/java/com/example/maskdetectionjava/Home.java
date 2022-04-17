@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Home extends Fragment {
 
@@ -36,10 +37,10 @@ public class Home extends Fragment {
 
         profileImageView = view.findViewById(R.id.clear_icon_imgview);
         profileImageView.setImageResource(Data.currData.profileImageID);
-        clearedCL = view.findViewById(R.id.clear_display_GL);
+        clearedCL = view.findViewById(R.id.clear_display_CL);
         clearedText = view.findViewById(R.id.cleared_text_view);
         nameText = view.findViewById(R.id.name_TV);
-        if(Data.currData.cleared){
+        if(Data.isCleared()){
             clearedCL.setBackgroundColor(Color.GREEN);
             clearedText.setText("Cleared");
         }else{
@@ -52,15 +53,17 @@ public class Home extends Fragment {
                 Intent maskintent = new Intent();
                 maskintent.setClass(getActivity(),Mask.class);
                 startActivity(maskintent);
+                getActivity().finish();
         });
 
         testButton = view.findViewById(R.id.test_btn);
         testButton.setOnClickListener(v -> {
-            //Intent testIntent = new Intent();
-            //testIntent.setClass(getActivity(),ScreenSliderPagerActivity.class);
-            //startActivity(testintent);
-            return;
+            Intent sympIntent = new Intent();
+            sympIntent.setClass(getActivity(), SymptomChecker.class);
+            startActivity(sympIntent);
+            getActivity().finish();
         });
         return view;
     }
+
 }

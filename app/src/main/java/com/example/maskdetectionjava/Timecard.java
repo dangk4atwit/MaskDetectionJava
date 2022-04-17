@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -17,6 +19,7 @@ public class Timecard extends Fragment {
 
     private ArrayList<Timecard_Day> dayList;
     private RecyclerView recyclerView;
+    private Button submit_btn;
 
     public Timecard() {
         // Required empty public constructor
@@ -37,6 +40,11 @@ public class Timecard extends Fragment {
 
         createDays();
         setAdapter();
+
+        submit_btn = view.findViewById(R.id.submit_btn);
+        submit_btn.setOnClickListener(v->{
+            Toast.makeText(getActivity().getApplicationContext(), "Submitted", Toast.LENGTH_SHORT).show();
+        });
 
         return view;
     }

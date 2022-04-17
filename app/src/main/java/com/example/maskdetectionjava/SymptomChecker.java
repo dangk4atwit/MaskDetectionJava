@@ -14,18 +14,19 @@ public class SymptomChecker extends AppCompatActivity {
     // Define the object for Radio Group,
     // Submit and Clear buttons
     private RadioGroup radioGroup;
-    Button submit, clear;
+    Button submit, clear, back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.symptom_layout);
 
         // Bind the components to their respective objects
         // by assigning their IDs
         // with the help of findViewById() method
-        submit = (Button)findViewById(R.id.submit);
+        submit = (Button)findViewById(R.id.submit_btn);
+        back = (Button)findViewById(R.id.back_btn);
         radioGroup = (RadioGroup)findViewById(R.id.groupradio);
 
         // Uncheck or reset the radio buttons initially
@@ -38,6 +39,13 @@ public class SymptomChecker extends AppCompatActivity {
                 // Get the selected Radio Button
                 RadioButton radioButton = (RadioButton)group.findViewById(checkedId);
             }
+        });
+
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(SymptomChecker.this, HomeMenu.class);
+            startActivity(intent);
+            finish();
         });
 
         // Add the Listener to the Submit Button
@@ -58,19 +66,21 @@ public class SymptomChecker extends AppCompatActivity {
                 else {
 
                     RadioButton radioButton = (RadioButton)radioGroup.findViewById(selectedId);
-
-                    Intent intent = new Intent();
-                    intent.setClass(SymptomChecker.this, HomeMenu.class);
-                    if (selectedId == 0) {
-                        intent.putExtra("green", true);
+                    if (radioButton.getText().equals("No New Symptoms")) {
+                        Data.setSymptomCleared(true);
+                    }else{
+                        Data.setSymptomCleared(false);
                     }
-                    intent.putExtra("red", false);
-                    startActivity(intent);
-
-
                     // Now display the value of selected item
                     // by the Toast message
-                    //Toast.makeText(SymptomChecker.this, radioButton.getText(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SymptomChecker.this, "Symptoms Submitted", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent();
+                    intent.setClass(SymptomChecker.this, HomeMenu.class);
+                    startActivity(intent);
+                    finish();
+
+
+
                 }
             }
         });

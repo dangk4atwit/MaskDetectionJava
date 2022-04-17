@@ -14,20 +14,26 @@ public class Data {
     String ID;
     String firstName;
     String lastName;
-    boolean cleared;
+    boolean symptomCleared;
+    boolean maskCleared;
     String phoneNumber;
     Level access;
     int profileImageID;
 
     public Data(){
-        this("none", "Bob", "Daniels", false, "000-000-0000", Level.ADMIN, R.drawable.ic_baseline_person_24);
+        this("none", "Bob", "Daniels",false, false, "000-000-0000", Level.ADMIN, R.drawable.ic_baseline_person_24);
     }
 
-    public Data(String ID, String firstName, String lastName, boolean cleared, String phoneNumber, Level access, int profileImageID){
+    public Data(Data data){
+        this(data.ID, data.firstName, data.lastName, data.symptomCleared, data.maskCleared, data.phoneNumber, data.access, data.profileImageID);
+    }
+
+    public Data(String ID, String firstName, String lastName, boolean symptomCleared, boolean maskCleared, String phoneNumber, Level access, int profileImageID){
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.cleared = cleared;
+        this.symptomCleared = symptomCleared;
+        this.maskCleared = maskCleared;
         this.phoneNumber = phoneNumber;
         this.access = access;
         this.profileImageID = profileImageID;
@@ -35,6 +41,20 @@ public class Data {
 
     static public void setCurrData(Data data){
         currData = data;
+    }
+    static public void setSymptomCleared(boolean cleared){
+        Data newData = currData;
+        newData.symptomCleared = cleared;
+        currData = new Data(newData);
+    }
+    static public void setMaskCleared(boolean cleared){
+        Data newData = currData;
+        newData.maskCleared = cleared;
+        currData = new Data(newData);
+    }
+
+    public static boolean isCleared(){
+        return currData.maskCleared && currData.symptomCleared;
     }
 
 }

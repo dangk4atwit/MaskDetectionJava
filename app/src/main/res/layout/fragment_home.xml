@@ -12,7 +12,7 @@
         android:background="@color/cardview_dark_background">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clear_display_GL"
+            android:id="@+id/clear_display_CL"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:background="@color/green"

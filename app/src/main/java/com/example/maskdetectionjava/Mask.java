@@ -1,5 +1,6 @@
 package com.example.maskdetectionjava;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.Camera;
@@ -56,7 +58,24 @@ public class Mask extends AppCompatActivity {
             startCameraPreview();
         }
 
+        button.setOnClickListener(v -> {
+            if(maskText.getText().equals("Mask Found")){
+                Data.setMaskCleared(true);
+                Toast.makeText(Mask.this, "Mask Verified", Toast.LENGTH_SHORT).show();
+            }else{
+                Data.setMaskCleared(false);
+                Toast.makeText(Mask.this, "Mask Invalid", Toast.LENGTH_SHORT).show();
+            }
+            Intent maskintent = new Intent();
+            maskintent.setClass(Mask.this, HomeMenu.class);
+            startActivity(maskintent);
+            finish();
+        });
+
         exit.setOnClickListener(v -> {
+            Intent maskintent = new Intent();
+            maskintent.setClass(Mask.this, HomeMenu.class);
+            startActivity(maskintent);
             finish();
         });
     }
