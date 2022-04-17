@@ -66,7 +66,7 @@ public class SymptomChecker extends AppCompatActivity {
                 else {
 
                     RadioButton radioButton = (RadioButton)radioGroup.findViewById(selectedId);
-                    if (radioButton.getText().equals("No New Symptoms")) {
+                    if (radioGroup.indexOfChild(radioButton) == 0) {
                         Data.setSymptomCleared(true);
                     }else{
                         Data.setSymptomCleared(false);
