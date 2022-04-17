@@ -18,6 +18,7 @@
             android:text="Submit Your Time..."
             android:textAlignment="center"
             android:textSize="34sp"
+            android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
