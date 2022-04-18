@@ -5,6 +5,12 @@
     <string name="timecardNavTitle">Timecard</string>
     <string name="logoutNavTitle">Logout</string>
     <string name="timeHint">HH:MM</string>
+    <string-array name="genders">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Nonbinary</item>
+        <item>Other</item>
+    </string-array>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

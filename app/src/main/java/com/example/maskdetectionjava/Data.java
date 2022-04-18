@@ -14,6 +14,9 @@ public class Data {
     String ID;
     String firstName;
     String lastName;
+    String gender;
+    String department;
+    String jobTitle;
     boolean symptomCleared;
     boolean maskCleared;
     String phoneNumber;
@@ -22,17 +25,20 @@ public class Data {
 
     //Default Constructor
     public Data(){
-        this("none", "Bob", "Daniels",false, false, "000-000-0000", Level.ADMIN, R.drawable.ic_baseline_person_24);
+        this("none", "Bob", "Daniels", "Male", "Information Technolgy", "Information Technician", false, false, "000-000-0000", Level.ADMIN, R.drawable.ic_baseline_person_24);
     }
 
     public Data(Data data){
-        this(data.ID, data.firstName, data.lastName, data.symptomCleared, data.maskCleared, data.phoneNumber, data.access, data.profileImageID);
+        this(data.ID, data.firstName, data.lastName, data.gender, data.department, data.jobTitle, data.symptomCleared, data.maskCleared, data.phoneNumber, data.access, data.profileImageID);
     }
 
-    public Data(String ID, String firstName, String lastName, boolean symptomCleared, boolean maskCleared, String phoneNumber, Level access, int profileImageID){
+    public Data(String ID, String firstName, String lastName, String gender, String department, String jobTitle, boolean symptomCleared, boolean maskCleared, String phoneNumber, Level access, int profileImageID){
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.gender = gender;
+        this.department = department;
+        this.jobTitle = jobTitle;
         this.symptomCleared = symptomCleared;
         this.maskCleared = maskCleared;
         this.phoneNumber = phoneNumber;
