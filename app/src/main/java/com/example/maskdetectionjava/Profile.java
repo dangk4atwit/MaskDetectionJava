@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 public class Profile extends Fragment {
 
     public Profile() {
-        // Required empty public constructor
     }
 
     @Override
