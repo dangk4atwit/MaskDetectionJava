@@ -8,8 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cardview_dark_background">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clear_display_CL"
@@ -71,14 +70,14 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <ImageButton
             android:id="@+id/test_btn"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:background="@drawable/ic_baseline_science_24"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/test_TV"
             app:layout_constraintStart_toStartOf="@id/test_TV"
             app:layout_constraintEnd_toEndOf="@id/test_TV"/>
@@ -94,14 +93,14 @@
             android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <ImageButton
             android:id="@+id/mask_btn"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:background="@drawable/ic_baseline_masks_24"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/mask_TV"
             app:layout_constraintEnd_toEndOf="@id/mask_TV"
             app:layout_constraintStart_toStartOf="@id/mask_TV" />
